@@ -1,0 +1,30 @@
+.Imglist_li{
+    border: 1px solid #89c3ff;
+    background-color: #9dccfe;
+    list-style-type: none;
+    width: 54px;
+    display: inline-block;
+    margin: 0 2px 2px 2px;
+    text-align: center;
+    span{
+    	color: #333;
+    }
+    &:hover{
+	    cursor: pointer;
+        background-color: #47a1fe;  
+    }
+}
+.Imglist_title{
+	color: #272525;
+	font-size:14px;
+ 	margin-bottom: 10px;
+}
+.Imglist_button{
+	background-color: #9dccfe;
+    border: oldlace;
+    margin-bottom: 10px;
+    color: #463733;
+}
+.Imglist_lu{
+	overflow-y:scroll;
+}

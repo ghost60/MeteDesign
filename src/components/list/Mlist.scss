@@ -1,0 +1,18 @@
+.mlist_li{
+	border-bottom: 1px solid #dfdfdf;
+	height: 28px;
+	line-height: 28px;
+	font-size: 14;
+	color: #fff;
+	a{
+	    color: #2a2a2a;
+	    &:hover{
+	    	color: #fd3b31;
+	    }
+	}
+	span{
+		color: #2a2a2a;
+	    margin-right: 20px;
+	    float: right;
+	}
+}		

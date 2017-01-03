@@ -1,0 +1,19 @@
+{
+  "name": "my_react_demo",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "webpack.config.js",
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack-dev-server --progress --colors --inline",
+    "deploy": "set NODE_ENV=production&&webpack -p --progress --colors --inline"
+  },
+  "author": "lsq",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {
+    "extract-text-webpack-plugin": "^1.0.1",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
+  }
+}

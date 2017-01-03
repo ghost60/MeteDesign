@@ -1,0 +1,17 @@
+.card-title{
+    background: #4b9bff;
+    height: 30px;
+    width: 100%;
+    line-height: 30px;
+    border-radius: 8px 8px 0 0;
+	span{
+	    margin-left: 12px;
+	    color: #fff;
+	    font-size: 14px;
+	    font-weight: 700;
+	}
+}
+.card-content{
+    border-radius: 0 0 8px 8px;
+    background: #fff;
+}

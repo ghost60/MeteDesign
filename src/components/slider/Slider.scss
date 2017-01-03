@@ -1,0 +1,95 @@
+.slider {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  border: 5px solid #fff;
+  &>ul {
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    left: 0;
+    transition: left 1s;
+    padding:0;
+    margin:0;
+    margin-bottom:-5px;
+    li{
+      padding:0;
+      margin:0;
+    }
+  }
+
+  .slider-item {
+    display: inline-block;
+    height: auto;
+
+    &>img {
+      display: block;
+      height: 100%;
+      width: 100%;
+      padding:0;
+      margin:0;
+    }
+  }
+
+  .SliderItem-textpanel{
+    position: absolute;
+    width: 100%;
+    z-index: 99;
+    bottom: 0px;
+    background: rgba(63, 78, 92, 0.66);
+    span{
+      display: inline-block;
+      margin: 20px;
+      color: #fff;
+    }
+  }
+  .slider-arrow {
+    display: inline-block;
+    color: #fff;
+    font-size: 50px;
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    z-index: 100;
+    padding: 20px;
+    cursor: pointer;
+    font-weight: bold;
+
+    &:hover {
+      background: rgba(0,0,0,.2);
+    }
+
+    &.slider-arrow-right {
+      right: 0;
+    }
+    &.slider-arrow-left {
+      left: 0;
+    }
+  }
+
+  .slider-dots-wrap {
+    z-index: 99;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+
+    .slider-dot {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        cursor: pointer;
+        border-radius: 18px;
+        float: right;
+        margin-right: 12px;
+        background: #fff;
+        background: #fff;
+      &:hover {
+        background: #0080ff;
+      }
+      &.slider-dot-selected {
+        background: #0080ff;
+      }
+    }
+  }
+}
