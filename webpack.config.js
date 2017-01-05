@@ -88,32 +88,34 @@ module.exports = {
 	]
 };
 // 判断开发环境还是生产环境,添加uglify等插件
-if (process.env.NODE_ENV === 'production') {
-	module.exports.plugins = (module.exports.plugins || [])
-		.concat([
-			new webpack.DefinePlugin({
-				__DEV__: JSON.stringify(JSON.parse(process.env.DEBUG || 'false'))
-			}),
-			new webpack.optimize.UglifyJsPlugin({
-				compress: {
-					warnings: false
-				}
-			}),
-			new webpack.optimize.OccurenceOrderPlugin(),
-		]);
-} else {
-	module.exports.devtool = 'source-map';
-	module.exports.devServer = {
-		port: 8080,
-		contentBase: './build',
-		hot: true,
-		historyApiFallback: true,
-		publicPath: "",
-		stats: {
-			colors: true
-		},
-		plugins: [
-			new webpack.HotModuleReplacementPlugin()
-		]
-	};
-}
+// if (process.env.NODE_ENV === 'production') {
+// 	module.exports.plugins = (module.exports.plugins || [])
+// 		.concat([
+// 			new webpack.DefinePlugin({
+// 				'process.env': {
+// 					NODE_ENV: JSON.stringify('production')
+// 				}
+// 			}),
+// 			new webpack.optimize.UglifyJsPlugin({
+// 				compress: {
+// 					warnings: false
+// 				}
+// 			}),
+// 			new webpack.optimize.OccurenceOrderPlugin(),
+// 		]);
+// } else {
+// 	module.exports.devtool = 'source-map';
+// 	module.exports.devServer = {
+// 		port: 8080,
+// 		contentBase: './build',
+// 		hot: true,
+// 		historyApiFallback: true,
+// 		publicPath: "",
+// 		stats: {
+// 			colors: true
+// 		},
+// 		plugins: [
+// 			new webpack.HotModuleReplacementPlugin()
+// 		]
+// 	};
+// }
