@@ -1,16 +1,14 @@
 import React, {
-  PropTypes
+	PropTypes
 }
 from 'react';
 import {
-  render
+	render
 }
 from 'react-dom';
 
-import {
-  Card
-}
-from './src/components/card';
+import Card from '../src/components/card';
+import '../src/components/card/style/index.scss';
 
 // class SMMap extends React.Component {
 //   render() {
@@ -33,4 +31,4 @@ from './src/components/card';
 //   }
 // }
 
-render((<Card />), document.getElementById('root'));
+render((<Card title={'haha'}>haha</Card>), document.getElementById('root'));

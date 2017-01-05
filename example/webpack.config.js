@@ -7,11 +7,11 @@ module.exports = {
 	//入口
 	entry: {
 		//配置入口文件，有几个写几个
-		index: './example/index.js'
+		index: './index.js'
 	},
 	//出口
 	output: {
-		path: path.join(__dirname, 'example'), //打包后生成的目录
+		path: path.join(__dirname, '/'), //打包后生成的目录
 		filename: 'js/[name].js', //根据对应入口名称，生成对应js名称
 	},
 	//解决方案
@@ -46,14 +46,22 @@ module.exports = {
 			loader: 'url?name=fonts/[name].[ext]'
 		}, ]
 	},
+	babel: {
+		presets: [
+			["es2015", {
+				"loose": true
+			}], "react", "stage-0"
+		],
+		plugins: ["transform-runtime", "transform-class-properties"]
+	},
 	plugins: [
 		new ExtractTextPlugin("css/[name].css"), //提取CSS行内样式，转化为link引入
 	],
 	devtool: 'source-map',
 	devServer: {
-		contentBase: './dist',
+		// contentBase: './dist',
 		host: 'localhost',
-		port: 8080, //端口
+		port: 8081, //端口
 		inline: true,
 		hot: false,
 	}
