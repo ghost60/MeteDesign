@@ -1,9 +1,18 @@
-export {
-	default as Card
-}
-from './card/index';
+import React from 'react'
+import { render } from 'react-dom'
 
-export {
-	default as Grid
+import Button from './button'
+class App extends React.Component {
+  render () {
+    return (
+      <div>
+              Mete Design
+              <hr />
+        <Button type='button'>
+              button
+              </Button>
+      </div>)
+  }
 }
-from './grid/Grid';
+
+render(<App />, document.getElementById('root'))
