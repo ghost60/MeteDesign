@@ -8,8 +8,8 @@ class App extends React.Component {
       <div>
               Mete Design
               <hr />
-        <Button type='button'>
-              button
+        <Button type='primary' size='large' onClick={() => { window.alert('btn') }}>
+              按钮
               </Button>
       </div>)
   }

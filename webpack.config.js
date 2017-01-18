@@ -34,7 +34,7 @@ module.exports = {
   },
   resolve: {
     root: [],
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx', 'scss']
   },
   module: {
     loaders: [{
@@ -72,7 +72,7 @@ module.exports = {
     }),
     // new CleanPlugin(['dist', 'build']),
     // 启动热替换
-    // new webpack.HotModuleReplacementPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
     new ExtractTextPlugin('css/[name].css', {
       allChunks: true
     })
@@ -110,6 +110,7 @@ module.exports.devServer = {
   contentBase: './build',
   host: '0.0.0.0',
   hot: true,
+  inline: true,
   historyApiFallback: true,
   publicPath: '',
   stats: {

@@ -26,6 +26,16 @@ function insertSpace (child) {
 }
 
 export default class Button extends React.Component {
+  constructor () {
+    super()
+    this.handleClick = this.handleClick.bind(this)
+  }
+  handleClick (e) {
+    const onClick = this.props.onClick
+    if (onClick) {
+      onClick(e)
+    }
+  }
 
   render () {
     const {type, size = '', shape, className, htmlType, children, icon, loading, prefixCls, ...others} = this.props
@@ -50,6 +60,7 @@ export default class Button extends React.Component {
         {...others}
         type={htmlType || 'button'}
         className={classes}
+        onClick={this.handleClick}
         >
         {kids}
       </button>
