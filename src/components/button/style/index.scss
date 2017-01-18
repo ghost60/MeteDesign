@@ -48,5 +48,23 @@ $prefix:md-btn;
             border-color: getColor('color300');
         }
     }
+     &-link{
+        color: getColor('color500');
+        background-color: transparent;
+        border-color: transparent;
+        &:hover{
+            color: getColor('color300');
+        }
+    }
+    &-loading{
+        pointer-events: none;
+    }
+    &-circle{
+        width: 28px;
+        height: 28px;
+        padding: 0;
+        font-size: 14px;
+        border-radius: 50%;
+    }
 }
 
