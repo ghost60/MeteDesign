@@ -7,7 +7,7 @@ const Alert = (props, className) => {
 
   return (
     <div className='md-modal'>
-      <div className='md-mask'>this is mask</div>
+      <div className='md-mask'></div>
       <div className='md-alert'>
         <Button
           type='primary'
