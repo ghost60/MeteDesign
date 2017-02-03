@@ -3,6 +3,7 @@ import { render } from 'react-dom'
 
 import Button from './button'
 import Icon from './icon'
+import Alert from './modal/alert'
 class App extends React.Component {
   render () {
     return (
@@ -22,6 +23,8 @@ class App extends React.Component {
         <h2>ICON</h2>
         <Icon type='stepbackward' />
         <Icon type='loading' spin />
+        <h2>MODAL</h2>
+        <Alert />
       </div>)
   }
 }
