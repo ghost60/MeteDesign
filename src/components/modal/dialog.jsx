@@ -2,12 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import ModalFrame from './modalFrame'
 import Icon from '../icon'
-import Button from '../button'
+import ModalButton from './modalButton'
 import './style'
 const Dialog = (...props) => {
     // 对话框类型
   props = Object.assign({}, ...props)
-  console.log(props)
   const prefixCls = 'md-modal'
   let type = props.type
   let div = document.createElement('div')
@@ -17,6 +16,17 @@ const Dialog = (...props) => {
     case 'confirm':
       iconType = 'question'
       break
+    case 'warning':
+      iconType = 'exclamation'
+      break
+    case 'success':
+      iconType = 'check'
+      break
+    case 'error':
+      iconType = 'close'
+      break
+    default:
+      iconType = 'info'
 
   }
   let close = () => {
@@ -27,7 +37,7 @@ const Dialog = (...props) => {
   }
   let body = (
     <div className={`${prefixCls}-dialog-body`}>
-      <Icon type={iconType} className={`${prefixCls}-icon-${iconType}`} />
+      <Icon type={iconType} className={`${prefixCls}-icon ${prefixCls}-icon-${type}`} />
       <span className={`${prefixCls}-title ${prefixCls}-dialog-title`}>{props.title}</span>
       <div className={`${prefixCls}-dialog-content`}>{props.content}</div>
     </div>
@@ -36,20 +46,14 @@ const Dialog = (...props) => {
   if (type === 'confirm') {
     footer = (
       <div className={`${prefixCls}-dialog-footer`}>
-        <Button type='default' onClick={close}>
-            取消
-        </Button>
-        <Button type='primary' onClick={close}>
-            确定
-        </Button>
+        <ModalButton type='default' click={props.onCancel} text='取消' closeModal={close} />
+        <ModalButton type='primary' click={props.onOk} text='确定' closeModal={close} />
       </div>
         )
   } else {
     footer = (
       <div className={`${prefixCls}-dialog-footer`}>
-        <Button type='primary'>
-            确定
-        </Button>
+        <ModalButton type='primary' click={props.onOk} text='确定' closeModal={close} />
       </div>
         )
   }

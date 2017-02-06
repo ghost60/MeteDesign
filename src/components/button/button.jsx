@@ -1,6 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
 // import { findDOMNode } from 'react-dom'
+import Icon from '../icon'
 import './style/'
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/
@@ -53,6 +54,8 @@ export default class Button extends React.Component {
       [`${prefixCls}-icon-only`]: !children && icon,
       [`${prefixCls}-loading`]: loading
     }, className)
+    // 是否启用加载动画
+    let isLoading = loading ? 'loading' : null
     // 按钮内容（包括文本等）
     const kids = React.Children.map(children, insertSpace)
     return (
@@ -62,6 +65,9 @@ export default class Button extends React.Component {
         className={classes}
         onClick={this.handleClick}
         >
+        {
+          isLoading ? <Icon type={isLoading} /> : null
+        }
         {kids}
       </button>
     )

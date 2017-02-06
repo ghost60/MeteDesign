@@ -54,7 +54,10 @@ const ModalFrame = (props, className) => {
         <div className={`${prefixCls}-content`}>
           {closer}
           {header}
-          {props.children}
+          <div className={`${prefixCls}-body`}>
+            {props.children}
+          </div>
+
           {footer}
         </div>
       </div>

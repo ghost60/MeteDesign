@@ -50,5 +50,3 @@
 4. 内容体 content
 
 5. 标题 title
-
-可使用`rc-dialog`插件，重命名为ModalFrame

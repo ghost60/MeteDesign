@@ -106,7 +106,7 @@ module.exports = {
 // } else {
 // 	module.exports.devtool = 'source-map'
 module.exports.devServer = {
-  port: 80,
+  port: 4000,
   contentBase: './build',
   host: '0.0.0.0',
   hot: true,

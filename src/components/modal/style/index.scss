@@ -37,11 +37,12 @@ $modalPrefix:md-modal;
 }
 
 .#{$modalPrefix}-content {
-    padding: 20px 30px;
     line-height: 1.5;
-    &::after{
-        content: '';display: block;
-        zoom:1;clear: both
+    &::after {
+        content: '';
+        display: block;
+        zoom: 1;
+        clear: both
     }
 }
 
@@ -68,11 +69,15 @@ $modalPrefix:md-modal;
     line-height: 21px;
     color: #000;
     font-size: 14px;
+    font-weight: bold;
+}
+
+.#{$modalPrefix}-body {
+    padding: 5px 16px
 }
 
 .#{$modalPrefix}-dialog-title {
     margin-left: 14px;
-    font-weight: bold;
 }
 
 .#{$modalPrefix}-dialog-content {
@@ -80,21 +85,53 @@ $modalPrefix:md-modal;
     color: rgba(0, 0, 0, 0.65);
     font-size: 12px;
 }
-.#{$modalPrefix}-dialog-footer{
-    float: right;margin:25px 0 0 0;
-    & button{
+
+.#{$modalPrefix}-dialog-footer {
+    float: right;
+    padding: 20px 30px;
+    & button {
         margin-left: 10px
     }
 }
-.#{$modalPrefix}-icon-question {
+
+.#{$modalPrefix}-icon {
     width: 24px;
     height: 24px;
     border-radius: 50%;
+    color: #fff;
+    font-size: 24px;
+}
+
+.#{$modalPrefix}-icon-confirm {
     background-color: #ffbf00;
-    color: #fff
+}
+
+.#{$modalPrefix}-icon-info {
+    background-color: #108ee9;
+}
+
+.#{$modalPrefix}-icon-success {
+    background-color: #00A854;
+}
+
+.#{$modalPrefix}-icon-error {
+    background-color: #F04134
+}
+
+.#{$modalPrefix}-icon-warning {
+    background-color: #ffbf00;
+}
+
+.#{$modalPrefix}-icon-info {
+    background-color: #108ee9;
+}
+
+.#{$modalPrefix}-icon-info {
+    background-color: #108ee9;
 }
 
 .#{$modalPrefix}-dialog-body {
+    padding: 20px 30px 0;
     i {
         float: left
     }
