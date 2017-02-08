@@ -6,7 +6,7 @@ import './style'
 const prefixCls = 'md-modal'
 const ModalFrame = (props, className) => {
   const modalCls = classNames(`${prefixCls}`, { 'md-modal-hidden': !props.visiable })
-  //   ModalFrame Closer Button Fun
+  //  ModalFrame Closer Button Fun
   //  @props.onClose <function> 模态框右上角关闭按钮处理函数
   const close = (e) => {
     if (props.onClose) props.onClose(e)

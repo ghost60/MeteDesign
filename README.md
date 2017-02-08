@@ -1,6 +1,6 @@
 # METE DESIGN产品说明
 
-本框架基于React开发。
+本产品基于React开发。
 
 ## 技术规范
 
@@ -48,7 +48,7 @@ CSS 预处理器技术现在已经非常的成熟，CSS 预处理器是一种语
 
 Mixin支持在一个系统中降解功能的重复性,增加功能的重用性.在一些应用程序也许需要在所有的对象实体共享行为的地方,我们能够通过在一个Mixin中维护这个共享的功能,来很容易的避免任何重复,而因此专注于只实现我们系统中真正彼此不同的功能
 
-在METE DESIGN产品中，你会看到我们在React组件和SASS中都有Mixin的身影。
+在METE DESIGN产品中，你会看到我们在React组件（将由HOC代替）和SASS中都有Mixin的身影。
 
 关于Mixin的学习资料，请自行查阅，相信你会有很强的自学能力:-D。
 
@@ -56,16 +56,26 @@ Mixin支持在一个系统中降解功能的重复性,增加功能的重用性.�
 
 为了能够很好的维护组件，我们迫切需要一个统一的风格来约束开发人员，下面将会详细说明这一约束。
 
-类名命名
-为每一个组件添加一个名为 prefixCls 的 prop，并将其默认值也设置为 xui-componentName，这样就在 jsx 层面也保证了代码的统一性，方便团队成员阅读及维护。
+~~类名命名~~
+~~为每一个组件添加一个名为 prefixCls 的 prop，并将其默认值也设置为 xui-componentName，这样就在 jsx 层面也保证了代码的统一性，方便团队成员阅读及维护 。~~
 
-结构规范
+#### CSS组件类名命名
+
+为每一个组件添加一个名为 ```prefixCls``` 的 `prop`，并将其默认值也设置为 `md-componentName[-xxx]`，此属性将用于组件统一样式命名，在组件层面上来说，便于后期团队交接以及组件维护工作。
+
+#### 结构规范
+
 组件 DOM 结构自由，允许传入DOM结构
 组件内部不进行数据结构处理
 在设计回调数据的数据结构时，我们只使用了单一值（如 Input 组件的回调）和对象两种数据结构，尽量避免了使用传统组件库中常用的数组。相较于对象，数组其实是一种含义更为丰富的数据结构，因为它是有向的（有顺序的），比如在上面时间组的例子中，timeList 就被设计为数组，这样它就可以在承载展示数据的同时表达出时间组展示的顺序，极大地方便了组件使用。但在给使用者抛出回调数据时，并不是每一位使用者都能够像组件设计者那样清楚回调数据的顺序，使用数组其实变相增加了使用者的记忆成本，
 
+```javascript
 const value = data[0];
+```
+
 这样的表达式，因为没有人能够保证被取值的这个数组长度满足需要且当前位上的元素就是要取的值。另一方面，对象因为键值对的存在，在具体到某一个元素的表意上要比数组更为丰富。例如选择日历区间后的回调需要同时返回开始日期及结束日期：
+
+```javascript
 // array
 ['2016-11-11', '2016-12-12']
 
@@ -74,24 +84,45 @@ const value = data[0];
    firstDay: '2016-11-11',
    lastDay: '2016-12-12',
 }
+```
+
+
 严格来讲上述的两种表达方式没有对错之分，只是对象的数据结构更能够清晰地表达每个元素的含义并消除顺序的影响，更利于不了解组件库内部代码的使用者快速上手。
 
 for-in里一定要有hasOwnProperty的判断；
+
+```javascript
 for (key in obj) {
-    if (obj.hasOwnProperty(key)) {
-        // be sure that obj[key] belongs to the object and was not inherited
-        console.log(obj[key]);
-    }
+  if (obj.hasOwnProperty(key)) {
+    // be sure that obj[key] belongs to the object and was not inherited
+    console.log(obj[key]);
+  }
 }
+```
 
-组件分类
-纯渲染组件和智能控件
-不含有内部状态的以纯函数写法表示的无交互的纯渲染组件
-含有内部状态以 ES6 class 写法表示的有交互的智能控件
 
-而在回调方面，所有的组件内部函数都以 handleXXX（handleClick, handleHover, handleMouseover 等）为命名模板，所有对外暴露的回调函数都以 onXXX（onChange、onSelect 等）为命名模板，这样在维护一些依赖层级较深的底层组件时，就可以在 render 方法中一眼看出某个回调是在处理内部状态，还是会抛回到更高一层。
 
-公共样式（即为默认主题）
+#### 组件分类
+
+~~纯渲染组件和智能控件~~
+~~不含有内部状态的以纯函数写法表示的无交互的纯渲染组件~~
+~~含有内部状态以 ES6 class 写法表示的有交互的智能控件~~
+
+在React中组件大致可分为状态组件和无状态组件（stateless functions）。
+
+##### 状态组件（辅）
+
+writing...
+
+##### 无状态组件（主）
+
+writing...
+
+#### 事件函数命名
+
+在回调方面，所有的组件内部函数都以 handleXXX（handleClick, handleHover, handleMouseover 等）为命名模板，所有对外暴露的回调函数都以 onXXX（onChange、onSelect 等）为命名模板，这样在维护一些依赖层级较深的底层组件时，就可以在 render 方法中一眼看出某个回调是在处理内部状态，还是会抛回到更高一层。
+
+#### 公共样式~~（即为默认主题）~~
 
 每个组件中需要的具有通用性的样式优先从公共样式中查找引用，
 如果公共样式中没有则需要商议是否归到公共样式中
@@ -117,3 +148,15 @@ for (key in obj) {
    下面提供一个`README.md`的示例
 
    ![README](./redame_example.png)
+
+## 参考资料
+
+- Antd
+- Ant Motion
+- React-Component
+
+*参考优秀设计思想，打造魅力产品特色。*
+
+------
+
+**METE DESIGN GROUP**
