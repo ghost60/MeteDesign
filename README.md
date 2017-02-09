@@ -112,11 +112,20 @@ for (key in obj) {
 
 ##### 状态组件（辅）
 
-writing...
+状态组件一般出现在容器组件、`Redux`等这样的用于控制组件之间的状态管理，它具有完整的生命周期和`state`状态机。能够很好的控制着全局表现，但是在`React`这样的强`View`，以UI层为主的框架中，似乎找不到理由不大力推崇无状态组件，即使状态组件比无状态组件要灵活的多，但是无状态组件有着它独特的优势，在产品中我们推崇以无状态组件为主，状态组件为辅。下面将简单介绍下无状态组件。
 
 ##### 无状态组件（主）
 
-writing...
+无状态组件顾名思义就是没有状态，在`React`中的表现是没有生命周期和`state`状态机，最主要是没有`this`关键字。无状态组件不是类，而是一个函数，而且是一个纯函数。对于一个确定的输入就有确定的输出。这对于逻辑上来说是非常有意义的，也非常方便测试和维护。下面摘抄一句react官方的话。
+
+> This pattern is designed to encourage the creation of these simple components that should comprise large portions of your apps. In the future, we’ll also be able to make performance optimizations specific to these components by avoiding unnecessary checks and memory allocations.
+
+至于无状态组件有哪些优势，请自行脑补:-D。
+
+在产品中，我们有两条原则：
+
+1. 如果组件需要生命周期方法，使用ES6 Classes
+2. 如果你能够使用无状态函数组件，那就用吧
 
 #### 事件函数命名
 
