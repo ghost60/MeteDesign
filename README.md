@@ -1,6 +1,6 @@
 # METE DESIGN产品说明
 
-本产品基于React开发。储奎
+本产品基于React开发。
 
 ## 技术规范
 
